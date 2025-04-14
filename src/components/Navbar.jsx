@@ -1,77 +1,57 @@
-import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { LuShoppingCart } from "react-icons/lu";
-import { BiUserCircle } from "react-icons/bi";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import UrlPath from "../utils/UrlPath";
+import { CiSearch } from "react-icons/ci";
+import { CgShoppingCart } from "react-icons/cg";
+import { FaRegUserCircle, FaSearch } from "react-icons/fa";
+import { LuShoppingCart } from "react-icons/lu";
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const [isLohgedIn, setIsLoggedIn] = React.useState(true);
-  const [searchValue, setSearchValue] = React.useState("");
-
-  useEffect(() => {
-    document.addEventListener("keyup", (e) => {
-      if (e.code == "Enter") {
-        navigate(`/search?data=${searchValue}`)
-        setSearchValue('')
-      }
-    });
-  });
-
-  const handleChange = (e) => {
-    setSearchValue(e.target.value);
-  };
-
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
   return (
-    <div>
-      <div className="flex justify-between items-center bg-blue-700 p-4 fixed top-0 w-full">
-        <div className="text-white text-2xl font-bold">
-          <Link to="/">Ekart</Link>
-        </div>
-        <div>
-          <div class="pt-2 relative mx-auto text-gray-600">
-            <input
-              class="border-2 border-gray-300 bg-white h-10 px-1 pr-1 md:pr-20 rounded-lg text-sm focus:outline-none"
-              type="search"
-              name="search" value={searchValue} onChange={handleChange}
-              placeholder="Search"
-            />
-          </div>
-        </div>
-        <div>
+    <div className="flex justify-between p-5 text-white bg-blue-600 fixed top-0 w-full">
+      <div>
+        <Link to={UrlPath.DASH} className="cursor-pointer">
+          <span className="text-2xl font-bold">Ekart</span>
+        </Link>
+      </div>
+      <div></div>
+      <div className="flex -mt-2 me-1">
+        <Link
+          to={UrlPath.SEARCH}
+          type="button"
+          class="inline-flex cursor-pointer text-white items-center rounded-3xl justify-center p-3 hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700 text-sm font-medium leading-none dark:text-white "
+        >
+          <FaSearch  className="text-xl lg:me-1 " />
+          <span class=" text-xl"> Search</span>
+        </Link>
+        <Link
+          to={UrlPath.CART}
+          type="button"
+          class="inline-flex cursor-pointer text-white items-center rounded-3xl justify-center p-3 hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700 text-sm font-medium leading-none dark:text-white "
+        >
+          <LuShoppingCart className="text-xl lg:me-1 " />
+          <span class=" text-xl"> Cart</span>
+        </Link>
+        {isUserLoggedIn ? (
+         <Link
+         to={UrlPath.PROFILE}
+         type="button"
+         class="inline-flex cursor-pointer text-white items-center rounded-3xl justify-center p-3 hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700 text-sm font-medium leading-none dark:text-white "
+       >
+         <FaRegUserCircle className=" me-2 text-xl lg:me-1 " />
+         <span class=" text-xl"> Gopal</span>
+       </Link>
+        ) : (
           <Link
-            to={UrlPath.CART}
-            type="button"
-            class="inline-flex  text-white items-center rounded-3xl justify-center p-3 hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700 text-sm font-medium leading-none dark:text-white "
-          >
-            <LuShoppingCart className="text-xl lg:me-1 " />
-            <span class="hidden sm:flex text-xl"> Cart</span>
-          </Link>
-          <button
-            type="button"
-            class="inline-flex  text-white items-center rounded-lg justify-center p-3 hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700 text-sm font-medium leading-none dark:text-white "
-          >
-            {isLohgedIn ? (
-              <Link to={UrlPath.PROFILE}>
-                <BiUserCircle className="text-xl lg:me-1" />
-              </Link>
-            ) : (
-              <Link to={UrlPath.LOGIN}>
-                <BiUserCircle className="text-xl lg:me-1" />
-              </Link>
-            )}
-            {isLohgedIn ? (
-              <Link to={UrlPath.PROFILE} className="hidden sm:flex text-xl">
-                Gopal
-              </Link>
-            ) : (
-              <Link to={UrlPath.LOGIN} class="hidden sm:flex text-xl">
-                {" "}
-                Login
-              </Link>
-            )}
-          </button>
-        </div>
+          to={UrlPath.LOGIN}
+          type="button"
+          class="inline-flex  text-white items-center rounded-3xl justify-center p-3 hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700 text-sm font-medium leading-none dark:text-white "
+        >
+          <FaRegUserCircle className="text-xl lg:me-1 " />
+          <span class=" text-xl"> Login</span>
+        </Link>
+        )}
       </div>
     </div>
   );

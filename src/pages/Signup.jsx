@@ -21,7 +21,7 @@ const Signup = () => {
   };
   return (
     <div className="mt-25">
-      <div class="grid grid-cols-1 md:grid-cols-2 mt-5 px-3 md:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-2  px-3 md:px-10">
         <div class="bg-blue-500 text-white p-5">
           <span className="font-bold text-xl">Looks like you're new here!</span>
           <br /> <br />

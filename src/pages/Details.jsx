@@ -7,7 +7,7 @@ import { CiSaveUp1 } from "react-icons/ci";
 const Details = () => {
  
   return (
-    <div className="mt-25 p-5 md:p-2">
+    <div className="mt-22 p-5 md:p-2">
       <div className="flex flex-col md:flex-row gap-5">
         <div className="bg-white p-1 md:p-10 w-full md:w-1/5 shadow-md rounded-md">
           <img

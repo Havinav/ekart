@@ -4,7 +4,7 @@ const UrlPath = {
     DASH : '/dashboard',
     LOGIN : '/login',
     SIGNUP : '/signup',
-    SEARCH : '/search/:name',
+    SEARCH : '/search',
     DETAILS : '/details',
     PROFILE : '/profile',
     ORDERS : '/orders',

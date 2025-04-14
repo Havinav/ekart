@@ -30,7 +30,7 @@ const headerData = [
 ]
 const Dashboard = () => {
   return (
-    <div className='mt-25 lg:mt-25 md:20 p-1 rounded-b-lg'>
+    <div className='mt-22 lg:mt-22 md:20 p-1 rounded-b-lg'>
       <div className='grid grid-cols-5 md:grid-cols-5 bg-white gap-4 md:gap-25 lg:gap-55 rounded-xl'>
         {headerData.map((item, index) => (
           <div key={index} className='flex flex-col items-center'>

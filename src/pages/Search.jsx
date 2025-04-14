@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 const Search = () => {
-  const [searchParams] = useSearchParams();
-  const data = searchParams.get("data") || "No search term provided";
-  console.log(data);
+  const [searchValue, setSearchValue] = useState("");
+  const handleChange = (e)=>{
+    setSearchValue(e.target.value)
+  }
+  const searchData = () => {
+    console.log(searchValue);
+  };
   return (
-    <div className="mt-25 p-2">
+    <div className=" p-2 mt-22">
+      <div>
+        <span class="mt-10 mx-auto max-w-xl py-2 px-6 rounded-full bg-gray-50 border flex focus-within:border-gray-300">
+          <input
+            type="text"  value={searchValue} onChange={handleChange}
+            placeholder="Search anything"
+            class=" text-black bg-transparent w-full focus:outline-none pr-4 font-semibold border-0 focus:ring-0 px-0 py-0"
+            name="topic"
+          />
+          <button onClick={searchData}
+           class="flex flex-row items-center justify-center min-w-[130px] px-4 rounded-full  disabled:opacity-50 transition ease-in-out duration-150 text-base bg-black text-white font-medium tracking-wide border-transparent py-1.5 h-[38px] -mr-3">
+            Search
+          </button>
+        </span>
+      </div>
+      <br />
       <section class="bg-gray-50 py-11 antialiased dark:bg-gray-900 md:py-2">
         <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
           <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
@@ -83,7 +102,6 @@ const Search = () => {
                   </li>
                 </ol>
               </nav>
-             
             </div>
             <div class="flex items-center space-x-4">
               <button

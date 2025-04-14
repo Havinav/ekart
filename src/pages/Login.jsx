@@ -19,7 +19,7 @@ const Login = () => {
 
   return (
     <>
-      <div class="grid grid-cols-1 md:grid-cols-2  px-3 md:px-10 mt-25">
+      <div class="grid grid-cols-1 md:grid-cols-2  px-3 md:px-10 mt-22">
         <div class="bg-blue-500 text-white p-5">
           <span className="font-bold text-xl">Login</span>
           <br />

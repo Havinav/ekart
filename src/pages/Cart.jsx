@@ -2,7 +2,7 @@ import React from 'react'
 
 const Cart = () => {
   return (
-    <div className='mt-25'>
+    <div className='mt-20'>
       <div class="max-w-5xl max-md:max-w-xl mx-auto p-4">
       <h1 class="text-2xl font-bold text-white">Your Cart</h1>
       <div class="grid md:grid-cols-3 gap-10 mt-8">

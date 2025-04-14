@@ -38,7 +38,7 @@ const routes = createBrowserRouter([
         element: <React.Suspense fallback={<div><Loading/></div>}><Signup /></React.Suspense>
       },
       {
-        path: "/search",
+        path: UrlPath.SEARCH,
         element: <React.Suspense fallback={<div><Loading/></div>}><Search /></React.Suspense>
       },
       {
