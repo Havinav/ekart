@@ -3,9 +3,6 @@ import React from 'react'
 const Loading = () => {
   return (
     <div class="relative bg-white mt-30  w-full flex items-center justify-center">
-   
-
-
     <div class="absolute bg-white bg-opacity-60 z-10 h-full w-full flex items-center justify-center">
       <div class="flex items-center">
         <span class="text-3xl mr-4">Loading</span>

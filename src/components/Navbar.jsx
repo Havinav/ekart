@@ -9,7 +9,7 @@ import { LuShoppingCart } from "react-icons/lu";
 const Navbar = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
   return (
-    <div className="flex justify-between p-5 text-white bg-blue-600 fixed top-0 w-full">
+    <div className="flex justify-between p-3 text-white bg-blue-600 fixed top-0 w-full">
       <div>
         <Link to={UrlPath.DASH} className="cursor-pointer">
           <span className="text-2xl font-bold">Ekart</span>
