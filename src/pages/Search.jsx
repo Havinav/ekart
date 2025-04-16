@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductService from "../services/ProductServices";
 import { Link } from "react-router-dom";
 import UrlPath from "../utils/UrlPath";
+import Loading from "./Loading";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -56,7 +57,7 @@ const Search = () => {
       <div>
       {loading && (
            <div className="mt-9">
-            <Load/>
+            <Loading/>
           
           </div>
           
