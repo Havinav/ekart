@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import UrlPath from "../utils/UrlPath";
 
 const mobileData = [
   {
@@ -33,16 +35,18 @@ const MobileCard = () => {
       <div class="grid grid-cols-5 md:grid-cols-5 gap-4 bg-white">
         {mobileData.map((item, index) => (
           <div key={index} className="flex flex-col p-3">
-            <div>
-              <img src={item.imgurl} alt="" className="h-20 md:h-70 w-full" />
-            </div>
-            <h2 className="md:text-lg font-semibold text-black text-sm">
-              {item.title}
-            </h2>
+            <Link to={UrlPath.PRODUCTS+"?data="+item.title}>
+              <div>
+                <img src={item.imgurl} alt="" className="h-20 md:h-70 w-full" />
+              </div>
+              <h2 className="md:text-lg font-semibold text-black text-sm">
+                {item.title}
+              </h2>
+            </Link>
           </div>
         ))}
       </div>
-      <br/>
+      <br />
       <div>
         <div class="container mx-auto px-5 py-2 bg-white">
           <div class="-m-1 flex flex-wrap md:-m-2">

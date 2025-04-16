@@ -14,6 +14,8 @@ const Details = React.lazy(() => import("./pages/Details"));
 const Profile = React.lazy(() => import("./pages/Profile"));
 const Orders = React.lazy(() => import("./pages/Orders"));
 const Addresses = React.lazy(() => import("./pages/Addresses"));
+const Products = React.lazy(() => import("./pages/Products"));
+const ViewDetails = React.lazy(() => import("./pages/ViewDetails"));
 
 const routes = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const routes = createBrowserRouter([
       {
         path: UrlPath.CART,
         element: <React.Suspense fallback={<div><Loading/></div>}><Cart /></React.Suspense>
+      },
+      {
+        path: UrlPath.PRODUCTS,
+        element: <React.Suspense fallback={<div><Loading/></div>}><Products /></React.Suspense>
+      },
+      {
+        path: UrlPath.PD,
+        element: <React.Suspense fallback={<div><Loading/></div>}><ViewDetails /></React.Suspense>
       },
       {
 

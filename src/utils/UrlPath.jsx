@@ -9,5 +9,7 @@ const UrlPath = {
     PROFILE : '/profile',
     ORDERS : '/orders',
     ADDRESSES : '/addresses',
+    PRODUCTS : '/products',
+    PD :'/productdetails'
 }
 export default UrlPath;

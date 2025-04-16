@@ -5,6 +5,8 @@ import ApplianceCard from './ApplianceCard'
 import LaptopsCard from './LaptopsCard'
 import FunitureCard from './FunitureCard'
 import Footer from './Footer'
+import { Link } from 'react-router-dom'
+import UrlPath from "../utils/UrlPath";
 
 const headerData = [
   {
@@ -34,8 +36,10 @@ const Dashboard = () => {
       <div className='grid grid-cols-5 md:grid-cols-5 bg-white gap-4 md:gap-25 lg:gap-20 rounded-xl'>
         {headerData.map((item, index) => (
           <div key={index} className='flex flex-col items-center p-5'>
+            <Link to={UrlPath.PRODUCTS+"?data="+item.title}>
             <img src={item.imgurl} alt={item.title} className='w-20 h-20 ' />
             <h2 className='md:text-lg font-semibold text-black text-sm'>{item.title}</h2>
+            </Link>
           </div>
         ))}
       </div> 

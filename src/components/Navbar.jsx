@@ -8,6 +8,7 @@ import { LuShoppingCart } from "react-icons/lu";
 
 const Navbar = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
+  
   return (
     <div className="flex justify-between p-3 text-white bg-blue-600 fixed top-0 w-full">
       <div>

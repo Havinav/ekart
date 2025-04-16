@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductService from "../services/ProductServices";
+import { Link } from "react-router-dom";
+import UrlPath from "../utils/UrlPath";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -9,11 +11,6 @@ const Search = () => {
   const handleChange = (e) => {
     setSearchValue(e.target.value);
   };
-  useEffect(() => {
-    document.addEventListener("keyup",(e)=>{
-      alert(e.code)
-    })
-  }, [])
   
   const searchProducts = async () => {
     if (searchValue) {
@@ -57,10 +54,27 @@ const Search = () => {
       </div>
       <br />
       <div>
+      {loading && (
+           <div className="mt-9">
+            <Load/>
+          
+          </div>
+          
+      )}
+      {error && (
+        <div
+          className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md"
+          role="alert"
+        >
+          <p>{error}</p>
+        </div>
+      )}
         {!loading && !error && (
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product) => {
               return (
+                <Link to={UrlPath.PD+"?data="+product.name}>
                 <div className="rounded-lg m-h-64 p-3" key={product.id}>
                   <div class="rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg">
                     <img
@@ -90,6 +104,7 @@ const Search = () => {
                     </div>
                   </div>
                 </div>
+                </Link>
               );
             })}
           </div>
